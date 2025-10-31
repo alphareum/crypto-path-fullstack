@@ -1,0 +1,1 @@
+module.exports = { apps: [ { name: "svc1", script: "node", args: "dist/server.js", watch: ["dist"] } ] };

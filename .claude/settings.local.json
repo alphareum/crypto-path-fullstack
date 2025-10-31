@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer show:*)",
+      "Bash(taskkill:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(curl:*)",
+      "Bash(php:*)",
+      "Bash(composer require:*)",
+      "Bash(bash .claude/devdocs/scripts/devdocs-new.sh:*)",
+      "Bash(bash .claude/hooks/skill-activation-prompt.sh:*)",
+      "Skill(backend-laravel-guidelines)",
+      "Skill(frontend-guidelines)",
+      "Read(//c/php/**)",
+      "Bash(powershell -Command:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(if exist \"backend\\.git\" rmdir /s /q \"backend\\.git\")",
+      "Bash(if exist \"frontend\\.git\" rmdir /s /q \"frontend\\.git\")"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/skill-activation-prompt.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

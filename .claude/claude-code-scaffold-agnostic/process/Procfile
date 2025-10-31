@@ -1,0 +1,2 @@
+web: uvicorn app.main:app --port 8000
+worker: python worker.py

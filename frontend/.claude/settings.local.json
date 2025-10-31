@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/alpha/OneDrive/Documents/GitHub/crypto-path-fullstack/backend/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

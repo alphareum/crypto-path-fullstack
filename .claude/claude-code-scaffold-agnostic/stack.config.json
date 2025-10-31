@@ -1,0 +1,85 @@
+{
+  "frontend_globs": [
+    "src/client/**",
+    "frontend/**",
+    "apps/*/client/**"
+  ],
+  "backend_globs": [
+    "src/server/**",
+    "backend/**",
+    "api/**",
+    "apps/*/server/**"
+  ],
+  "test_globs": [
+    "**/*.{test,spec}.{ts,tsx,js,jsx}",
+    "**/*_{test,spec}.py",
+    "tests/**"
+  ],
+  "db_indicators": [
+    "schema.prisma",
+    "alembic.ini",
+    "migrations/**",
+    "models.py",
+    "entities/*.go"
+  ],
+  "package_manager": "pnpm",
+  "commands": {
+    "build": "pnpm -w build",
+    "test": "pnpm -w test",
+    "dev": "pnpm -w dev"
+  },
+  "skills_map": {
+    "frontend": [
+      "frontend",
+      "ui",
+      "react",
+      "next",
+      "svelte",
+      "vite"
+    ],
+    "backend-node": [
+      "node",
+      "fastify",
+      "express",
+      "hono"
+    ],
+    "backend-python": [
+      "python",
+      "fastapi",
+      "flask",
+      "django"
+    ],
+    "backend-go": [
+      "go",
+      "gin",
+      "echo",
+      "fiber"
+    ],
+    "db-prisma": [
+      "prisma"
+    ],
+    "db-sqlalchemy": [
+      "sqlalchemy",
+      "alembic"
+    ],
+    "testing-js": [
+      "vitest",
+      "jest",
+      "playwright"
+    ],
+    "testing-py": [
+      "pytest",
+      "unittest"
+    ],
+    "infra-docker": [
+      "docker",
+      "compose"
+    ],
+    "security": [
+      "auth",
+      "rbac",
+      "jwt",
+      "oauth"
+    ]
+  }
+}

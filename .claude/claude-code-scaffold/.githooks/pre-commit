@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# .githooks/pre-commit
+# Run skill suggestion before committing to remind you to load the right skills in your AI session.
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo ".")"
+bash "$ROOT/devdocs/scripts/skill-suggest.sh" || true

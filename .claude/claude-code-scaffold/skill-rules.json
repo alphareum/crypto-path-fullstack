@@ -1,0 +1,42 @@
+{
+  "rules": [
+    {
+      "match": {
+        "path_glob": "apps/web/**"
+      },
+      "skills": [
+        "frontend",
+        "testing"
+      ]
+    },
+    {
+      "match": {
+        "path_glob": "apps/api/**"
+      },
+      "skills": [
+        "backend",
+        "testing"
+      ]
+    },
+    {
+      "match": {
+        "path_glob": "**/*.test.*"
+      },
+      "skills": [
+        "testing"
+      ]
+    },
+    {
+      "match": {
+        "keywords": [
+          "prisma",
+          "schema.prisma",
+          "migration"
+        ]
+      },
+      "skills": [
+        "db"
+      ]
+    }
+  ]
+}

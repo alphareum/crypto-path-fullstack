@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# hooks/pre-commit — suggest skills to load based on skill-rules.json
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo ".")"
+RULES="$ROOT/skill-rules.json"
+if [ ! -f "$RULES" ]; then
+  echo "No skill-rules.json. Run: python skills/build-rules.py"
+  exit 0
+fi
+
+changed=$(git diff --name-only --cached || true)
+skills=()
+
+# path_glob (loose contains match)
+while IFS= read -r path; do
+  while read -r glob; do
+    frag="${glob//\*\*/}"
+    if [[ "$path" == *"$frag"* ]]; then
+      s=$(jq -r ".rules[] | select(.match.path_glob? == \"$glob\") | .skills[] " "$RULES" 2>/dev/null || true)
+      if [ -n "$s" ]; then skills+=($s); fi
+    fi
+  done < <(jq -r '.rules[].match.path_glob? // empty' "$RULES" | sort -u)
+done <<< "$changed"
+
+# keyword-based rules via diff content
+keywords=$(jq -r '.rules[].match.keywords[]? // empty' "$RULES" | sort -u)
+if [ -n "$keywords" ]; then
+  for kw in $keywords; do
+    if git diff --cached -U0 | grep -iq "$kw"; then
+      s=$(jq -r ".rules[] | select(.match.keywords? | index(\"$kw\")) | .skills[] " "$RULES")
+      if [ -n "$s" ]; then skills+=($s); fi
+    fi
+  done
+fi
+
+# Unique
+if [ ${#skills[@]} -gt 0 ]; then
+  mapfile -t uniq < <(printf "%s\n" "${skills[@]}" | awk '!seen[$0]++')
+  echo "🔎 Suggested skills to load:"
+  for s in "${uniq[@]}"; do echo "  - $s"; done
+fi

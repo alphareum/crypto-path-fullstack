@@ -1,0 +1,154 @@
+{
+    "version": "1.0",
+    "description": "Skill activation triggers for crypto-path-fullstack project (React/Vite + Laravel)",
+    "skills": {
+        "frontend-guidelines": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "high",
+            "description": "React/Vite/TailwindCSS frontend development patterns",
+            "promptTriggers": {
+                "keywords": [
+                    "component",
+                    "react component",
+                    "frontend",
+                    "UI",
+                    "interface",
+                    "page",
+                    "modal",
+                    "dialog",
+                    "form",
+                    "react",
+                    "vite",
+                    "tailwind",
+                    "shadcn",
+                    "styling",
+                    "client"
+                ],
+                "intentPatterns": [
+                    "(create|add|make|build|update|modify|edit).*?(component|UI|page|modal|dialog|form)",
+                    "(how to|best practice).*?(component|react|frontend)",
+                    "(style|design|layout).*?(component|UI|page)"
+                ]
+            }
+        },
+        "backend-laravel-guidelines": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "high",
+            "description": "Laravel/PHP backend development patterns",
+            "promptTriggers": {
+                "keywords": [
+                    "backend",
+                    "laravel",
+                    "controller",
+                    "model",
+                    "eloquent",
+                    "route",
+                    "routing",
+                    "API",
+                    "endpoint",
+                    "middleware",
+                    "validation",
+                    "form request",
+                    "migration",
+                    "database",
+                    "php",
+                    "artisan",
+                    "sanctum"
+                ],
+                "intentPatterns": [
+                    "(create|add|implement|build).*?(route|endpoint|API|controller|model)",
+                    "(fix|handle|debug).*?(error|exception|backend)",
+                    "(add|implement).*?(middleware|validation|migration)",
+                    "(how to|best practice).*?(backend|laravel|eloquent|controller)"
+                ]
+            }
+        },
+        "code-review": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "medium",
+            "description": "Code architecture and quality review",
+            "promptTriggers": {
+                "keywords": [
+                    "review",
+                    "code review",
+                    "check code",
+                    "review code",
+                    "architecture review",
+                    "refactor"
+                ],
+                "intentPatterns": [
+                    "(review|check|analyze|examine).*?(code|implementation|architecture)",
+                    "(refactor|improve|optimize).*?(code|structure)"
+                ]
+            }
+        },
+        "documentation": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "medium",
+            "description": "Documentation creation and updates",
+            "promptTriggers": {
+                "keywords": [
+                    "document",
+                    "documentation",
+                    "README",
+                    "docs",
+                    "API docs",
+                    "write docs"
+                ],
+                "intentPatterns": [
+                    "(create|write|update|generate).*?(document|documentation|README|docs)",
+                    "(how to|best practice).*?document"
+                ]
+            }
+        },
+        "testing": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "medium",
+            "description": "Testing patterns for frontend and backend",
+            "promptTriggers": {
+                "keywords": [
+                    "test",
+                    "testing",
+                    "unit test",
+                    "integration test",
+                    "vitest",
+                    "phpunit",
+                    "test case"
+                ],
+                "intentPatterns": [
+                    "(create|write|add).*?(test|testing|unit test)",
+                    "(how to|best practice).*?test"
+                ]
+            }
+        }
+    },
+    "notes": {
+        "status": "Basic configuration for crypto-path project",
+        "tech_stack": {
+            "frontend": "React 18 + Vite + TailwindCSS + shadcn/ui",
+            "backend": "Laravel 12 + PHP + Sanctum",
+            "database": "Supabase PostgreSQL + Laravel Eloquent"
+        },
+        "next_steps": [
+            "Increment 3: Create frontend-guidelines skill",
+            "Increment 4: Create backend-laravel-guidelines skill",
+            "Increment 5: Expand keywords and patterns as needed"
+        ],
+        "enforcement_types": {
+            "suggest": "Skill suggestion appears but doesn't block execution",
+            "block": "Requires skill to be used before proceeding (guardrail)",
+            "warn": "Shows warning but allows proceeding"
+        },
+        "priority_levels": {
+            "critical": "Highest - Always trigger when matched",
+            "high": "Important - Trigger for most matches",
+            "medium": "Moderate - Trigger for clear matches",
+            "low": "Optional - Trigger only for explicit matches"
+        }
+    }
+}
