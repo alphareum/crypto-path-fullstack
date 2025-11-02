@@ -1,5 +1,4 @@
-// API base URL
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '@/config/api';
 
 // Progress record interface
 export interface UserProgress {

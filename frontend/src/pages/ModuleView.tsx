@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
 import * as progressService from "@/services/progressService";
 import type { UserProgress } from "@/services/progressService";
+import { API_URL } from "@/config/api";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -171,7 +172,7 @@ const ModuleView = () => {
 
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/api/modules/${id}`);
+        const response = await fetch(`${API_URL}/modules/${id}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

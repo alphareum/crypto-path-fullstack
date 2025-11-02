@@ -1,7 +1,5 @@
 import { User } from '@/contexts/AuthContext';
-
-// API base URL - consider moving to environment variable
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '@/config/api';
 
 // API response types
 interface AuthResponse {
