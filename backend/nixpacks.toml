@@ -1,3 +1,0 @@
-[variables]
-# Configure nginx to serve from Laravel's public directory
-NIXPACKS_PHP_ROOT_DIR = '/app/public'
