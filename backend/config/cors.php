@@ -21,9 +21,9 @@ return [
 
     // Allow specific origins (more secure than '*')
     'allowed_origins' => [
-        'http://localhost:8080',      // React development server
-        'http://127.0.0.1:8080',      // Alternative localhost
-        // Add production URL here later: 'https://yourdomain.com'
+        'http://localhost:5173',      // React development server (Vite)
+        'http://127.0.0.1:5173',      // Alternative localhost
+        'https://crypto-path-frontend.vercel.app',  // Production frontend
     ],
 
     'allowed_origins_patterns' => [],
