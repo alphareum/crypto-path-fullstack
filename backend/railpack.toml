@@ -1,0 +1,14 @@
+# Railpack configuration for Railway deployment
+# Skip artisan cache commands during build to avoid APP_ENV secret requirement
+
+[build]
+# Override default build steps to skip artisan caching
+# Artisan cache commands require APP_ENV which is only available at runtime
+steps = [
+    "mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache",
+    "chmod -R a+rw storage"
+]
+
+# Note: Artisan cache commands (config:cache, route:cache, view:cache, event:cache)
+# are skipped during build. Laravel will work without caching and can be cached
+# at runtime if needed via a startup script.

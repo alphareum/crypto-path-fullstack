@@ -20,7 +20,6 @@
                     "ext-zip":  "*",
                     "ext-gd":  "*",
                     "ext-bcmath":  "*",
-                    "ext-opcache":  "*",
                     "ext-mbstring":  "*"
                 },
     "require-dev":  {
