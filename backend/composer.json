@@ -68,9 +68,6 @@
                     "post-update-cmd":  [
                                             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
                                         ],
-                    "pre-install-cmd":  [
-                                            "@php -r \"file_exists(\u0027.env\u0027) || copy(\u0027.env.example\u0027, \u0027.env\u0027);\""
-                                        ],
                     "post-root-package-install":  [
                                                       "@php -r \"file_exists(\u0027.env\u0027) || copy(\u0027.env.example\u0027, \u0027.env\u0027);\""
                                                   ],
