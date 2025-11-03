@@ -60,6 +60,26 @@ return [
             'report' => false,
         ],
 
+        'supabase-images' => [
+            'driver' => 'supabase',
+            'key' => env('SUPABASE_KEY'),
+            'bucket' => 'module-images',
+            'endpoint' => env('SUPABASE_URL'),
+            'url' => null,
+            'throw' => false,
+            'report' => false,
+        ],
+
+        'supabase-pdfs' => [
+            'driver' => 'supabase',
+            'key' => env('SUPABASE_KEY'),
+            'bucket' => 'lesson-pdf',
+            'endpoint' => env('SUPABASE_URL'),
+            'url' => null,
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*
