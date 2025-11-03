@@ -43,8 +43,8 @@ class LessonResource extends Resource
                     ->required()
                     ->options([
                         'video' => 'Video',
-                        'reading' => 'Reading',
-                        'quiz' => 'Quiz',
+                        'pdf' => 'PDF',
+                        'interactive' => 'Interactive',
                     ]),
                 Forms\Components\TextInput::make('order')
                     ->required()
@@ -61,8 +61,11 @@ class LessonResource extends Resource
                     ->helperText('YouTube URL (unlisted)'),
                 Forms\Components\FileUpload::make('pdf_url')
                     ->label('PDF File')
+                    ->disk('supabase-pdfs')
+                    ->directory('lesson-pdfs')
                     ->acceptedFileTypes(['application/pdf'])
-                    ->maxSize(10240)
+                    ->maxSize(51200)
+                    ->visibility('public')
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->columnSpanFull(),
@@ -89,8 +92,8 @@ class LessonResource extends Resource
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'video' => 'success',
-                        'reading' => 'info',
-                        'quiz' => 'warning',
+                        'pdf' => 'info',
+                        'interactive' => 'warning',
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('order')
@@ -117,8 +120,8 @@ class LessonResource extends Resource
                 Tables\Filters\SelectFilter::make('type')
                     ->options([
                         'video' => 'Video',
-                        'reading' => 'Reading',
-                        'quiz' => 'Quiz',
+                        'pdf' => 'PDF',
+                        'interactive' => 'Interactive',
                     ]),
                 Tables\Filters\TernaryFilter::make('is_published')
                     ->label('Published')
@@ -144,6 +147,11 @@ class LessonResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    {
+        return parent::getEloquentQuery()->with('module');
     }
 
     public static function getPages(): array
