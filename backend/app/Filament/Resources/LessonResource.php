@@ -66,6 +66,9 @@ class LessonResource extends Resource
                     ->acceptedFileTypes(['application/pdf'])
                     ->maxSize(51200)
                     ->visibility('public')
+                    ->downloadable(fn ($livewire) => $livewire instanceof \Filament\Resources\Pages\EditRecord)
+                    ->previewable(fn ($livewire) => $livewire instanceof \Filament\Resources\Pages\EditRecord)
+                    ->openable(fn ($livewire) => $livewire instanceof \Filament\Resources\Pages\EditRecord)
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->columnSpanFull(),
